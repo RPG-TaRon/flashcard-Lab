@@ -1,0 +1,403 @@
+﻿:root {
+  --modern-purple: #7c3aed;
+  --modern-blue: #2563eb;
+  --modern-pink: #ec4899;
+  --modern-cyan: #22d3ee;
+  --classic-cream: #f5ecd8;
+  --classic-ink: #2f241d;
+  --classic-gold: #c8a96b;
+  --page-dark: #0f0b1f;
+  --page-mid: #1a1233;
+  --panel-bg: rgba(255, 255, 255, 0.08);
+  --panel-border: rgba(255, 255, 255, 0.14);
+  --text-soft: rgba(255, 255, 255, 0.75);
+  --shadow-soft: 0 14px 40px rgba(0, 0, 0, 0.35);
+  --font-modern: "Trebuchet MS", "Segoe UI", Tahoma, sans-serif;
+  --font-classic: Georgia, "Times New Roman", serif;
+  --danger-red: #ef4444;
+  --danger-dark: #b91c1c;
+  --focus-ring: 0 0 0 0.25rem rgba(34, 211, 238, 0.28);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  color: white;
+  font-family: var(--font-modern);
+  background:
+    radial-gradient(circle at top left, rgba(124, 58, 237, 0.28), transparent 35%),
+    radial-gradient(circle at bottom right, rgba(34, 211, 238, 0.18), transparent 30%),
+    linear-gradient(135deg, var(--page-dark), var(--page-mid));
+  position: relative;
+  overflow-x: hidden;
+}
+
+.page-glow {
+  position: fixed;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0.3;
+  pointer-events: none;
+  z-index: 0;
+  animation: floatGlow 10s ease-in-out infinite;
+}
+
+.glow-one {
+  top: 40px;
+  left: -80px;
+  background: rgba(236, 72, 153, 0.35);
+}
+
+.glow-two {
+  bottom: 80px;
+  right: -100px;
+  background: rgba(34, 211, 238, 0.25);
+  animation-delay: 2s;
+}
+
+.site-header,
+main,
+.site-footer,
+.app-modal {
+  position: relative;
+  z-index: 1;
+}
+.app-logo {
+  max-width: 420px;
+  width: 100%;
+  height: auto;
+  margin-left: 450px;
+}
+
+.site-header {
+  min-height: 260px;
+  display: flex;
+  align-items: center;
+
+  background:
+    linear-gradient(rgba(10, 8, 20, 0.45), rgba(10, 8, 20, 0.45)),
+    url("./images/Background-banner.jpg");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  box-shadow: var(--shadow-soft);
+}
+
+.app-title {
+  font-size: clamp(2rem, 4vw, 2.6rem);
+  font-weight: 800;
+  letter-spacing: 0.5px;
+}
+
+.glass-panel {
+  background: var(--panel-bg);
+  border: 1px solid var(--panel-border);
+  border-radius: 24px;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: var(--shadow-soft);
+}
+
+.sidebar-title,
+.deck-title {
+  color: white;
+}
+
+.deck-description,
+.card-count,
+.site-footer,
+.keyboard-tip,
+.modal-help-text {
+  color: var(--text-soft);
+}
+
+.new-deck-button,
+.toolbar-button,
+.control-button,
+.deck-button,
+.deck-action-button {
+  border: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+}
+
+.new-deck-button:hover,
+.toolbar-button:hover,
+.control-button:hover,
+.deck-button:hover,
+.deck-action-button:hover {
+  transform: translateY(-2px);
+}
+
+.new-deck-button {
+  background: white;
+  color: #111827;
+}
+
+.deck-button {
+  width: 100%;
+  text-align: left;
+  padding: 14px 16px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.06);
+  color: white;
+  font-weight: 600;
+}
+
+.deck-button.active-deck {
+  background: linear-gradient(
+    135deg,
+    rgba(124, 58, 237, 0.95),
+    rgba(37, 99, 235, 0.92),
+    rgba(236, 72, 153, 0.9)
+  );
+  box-shadow: 0 0 22px rgba(124, 58, 237, 0.35);
+}
+
+.search-input,
+.modal-input {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  color: white;
+}
+
+.search-input::placeholder,
+.modal-input::placeholder {
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.search-input:focus,
+.modal-input:focus,
+.flashcard:focus,
+.deck-button:focus,
+.toolbar-button:focus,
+.control-button:focus,
+.new-deck-button:focus,
+.btn-close-modal:focus {
+  background: rgba(255, 255, 255, 0.12);
+  color: white;
+  border-color: var(--modern-cyan);
+  box-shadow: var(--focus-ring);
+  outline: none;
+}
+
+.toolbar-button {
+  background: linear-gradient(135deg, #111827, #374151);
+  color: white;
+}
+
+.control-button {
+  background: linear-gradient(135deg, var(--modern-purple), var(--modern-blue));
+  color: white;
+  border-radius: 999px;
+  padding: 12px 22px;
+  font-weight: 700;
+}
+
+.danger-button {
+  background: linear-gradient(135deg, var(--danger-red), var(--danger-dark));
+  color: white;
+}
+
+.study-area {
+  min-height: 400px;
+}
+
+.flashcard-scene {
+  max-width: 720px;
+  min-height: 370px;
+  perspective: 1400px;
+}
+
+.flashcard {
+  width: 100%;
+  min-height: 370px;
+  position: relative;
+  border: none;
+  background: transparent;
+  border-radius: 28px;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    opacity 0.18s ease;
+}
+
+.flashcard:hover {
+  transform: translateY(-4px) scale(1.01);
+}
+
+.flashcard.card-switching {
+  transform: scale(0.98);
+  opacity: 0.75;
+}
+
+.flashcard-inner {
+  position: relative;
+  width: 100%;
+  min-height: 370px;
+  transform-style: preserve-3d;
+  transition: transform 0.7s ease;
+}
+
+.flashcard.is-flipped .flashcard-inner {
+  transform: rotateY(180deg);
+}
+
+.flashcard-face {
+  position: absolute;
+  inset: 0;
+  border-radius: 28px;
+  padding: 36px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  box-shadow: var(--shadow-soft);
+}
+
+.flashcard-front {
+  background: linear-gradient(
+    135deg,
+    var(--modern-purple),
+    var(--modern-blue),
+    var(--modern-pink)
+  );
+  color: white;
+  box-shadow: var(--shadow-soft), 0 0 32px rgba(124, 58, 237, 0.35);
+}
+
+.flashcard-front::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.22), transparent 22%),
+    radial-gradient(circle at 80% 30%, rgba(255, 255, 255, 0.12), transparent 20%);
+  pointer-events: none;
+}
+
+.flashcard-back {
+  background: linear-gradient(180deg, #f8f0de, var(--classic-cream));
+  color: var(--classic-ink);
+  border: 3px solid var(--classic-gold);
+  font-family: var(--font-classic);
+  box-shadow: var(--shadow-soft), 0 0 28px rgba(200, 169, 107, 0.22);
+  transform: rotateY(180deg);
+}
+
+.card-side-label {
+  font-size: 0.9rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.card-text {
+  font-size: clamp(1.7rem, 3vw, 2.2rem);
+  line-height: 1.4;
+}
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(3, 7, 18, 0.7);
+  z-index: 10;
+}
+
+.app-modal {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  z-index: 11;
+}
+
+.app-modal-content {
+  width: 100%;
+  max-width: 560px;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.form-label {
+  color: white;
+  font-weight: 700;
+}
+
+.modal-error-message {
+  min-height: 24px;
+  color: #fca5a5;
+  font-weight: 600;
+}
+
+.btn-close-modal {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.08);
+  color: white;
+  font-size: 24px;
+  line-height: 1;
+}
+
+.empty-deck-message,
+.empty-card-message {
+  text-align: center;
+  color: var(--text-soft);
+  font-size: 1.05rem;
+}
+
+@media (max-width: 767px) {
+  .flashcard-scene,
+  .flashcard,
+  .flashcard-inner {
+    min-height: 300px;
+  }
+
+  .flashcard-face {
+    padding: 28px;
+  }
+
+  .card-text {
+    font-size: 1.5rem;
+  }
+}
+
+@keyframes shiftGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes floatGlow {
+  0%,
+  100% {
+    transform: translateY(0) translateX(0);
+  }
+
+  50% {
+    transform: translateY(-18px) translateX(12px);
+  }
+}
