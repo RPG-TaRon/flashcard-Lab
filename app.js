@@ -1,4 +1,4 @@
-﻿const STORAGE_KEY = "talk-through-time-state-v1";
+﻿const STORAGE_KEY = "talk-through-time-state-v2";
 
 const starterDecks = [
   { id: "royal-court-vs-group-chat", name: "👑 Royal Court vs Group Chat", createdAt: Date.now() - 6000 },
@@ -14,31 +14,43 @@ const starterCardsByDeckId = {
     { id: "rcgc-1", front: "That's Cap", back: "My lord, thou speaketh falsehoods most boldly", updatedAt: Date.now() },
     { id: "rcgc-2", front: "Say less", back: "Restrain thy tongue, for thy message hath already reached mine understanding", updatedAt: Date.now() },
     { id: "rcgc-3", front: "Where you at", back: "Reveal thy current whereabouts, lest I assume thou art lost to the wilderness", updatedAt: Date.now() },
+    { id: "rcgc-6", front: "We outside this weekend", back: "This weekend, we shall depart the halls and make our presence known unto the realm", updatedAt: Date.now() },
+    { id: "rcgc-7", front: "Get yo money up, not yo funny up", back: "Improve thy coin before attempting jest in my presence", updatedAt: Date.now() },
   ],
   "savage-comebacks": [
     { id: "sc-1", front: "You are not relevant", back: "Thy presence holds no consequence in this realm", updatedAt: Date.now() },
     { id: "sc-2", front: "You thought you ate", back: "Thou hast accomplished naught worthy of praise", updatedAt: Date.now() },
     { id: "sc-3", front: "You are not even on my level", back: "Thou standeth far beneath my station", updatedAt: Date.now() },
+    { id: "sc-6", front: "Who is this guy", back: "Pray tell, who hath allowed this unknown peasant to speak?", updatedAt: Date.now() },
+    { id: "sc-7", front: "You sound smart when you not speaking", back: "Thou appearest wisest when thy mouth remaineth shut", updatedAt: Date.now() },
   ],
   "love-and-heartbreak": [
     { id: "lh-1", front: "You played me", back: "Thou hast made sport of my affection", updatedAt: Date.now() },
     { id: "lh-2", front: "I'm over it", back: "My heart hath released its hold upon thee", updatedAt: Date.now() },
     { id: "lh-3", front: "We're done", back: "Let this be the end of our union", updatedAt: Date.now() },
+    { id: "lh-6", front: "I need you real bad", back: "My soul yearneth for thee with unreasonable urgency", updatedAt: Date.now() },
+    { id: "lh-7", front: "Stop playing, you know you want me", back: "Cease thy games, for thy heart already inclineth toward me", updatedAt: Date.now() },
   ],
   insults: [
     { id: "ins-1", front: "You're slow", back: "Thou art not swift of mind", updatedAt: Date.now() },
     { id: "ins-2", front: "You're embarrassing yourself", back: "Thou hast become a spectacle of thine own making", updatedAt: Date.now() },
     { id: "ins-3", front: "That was weak", back: "A most feeble display, unworthy of note", updatedAt: Date.now() },
+    { id: "ins-6", front: "You broke", back: "Thy purse is emptier than thy promises", updatedAt: Date.now() },
+    { id: "ins-7", front: "I'm jealous of everyone you never met", back: "I envy all souls fortunate enough to have never crossed paths with thee", updatedAt: Date.now() },
   ],
   "confidence-and-bragging": [
     { id: "cb-1", front: "I'm him", back: "I am that individual of whom legends dare whisper", updatedAt: Date.now() },
     { id: "cb-2", front: "I don't miss", back: "Failure and I are but distant acquaintances", updatedAt: Date.now() },
     { id: "cb-3", front: "I'm built different", back: "I am fashioned in a manner unlike any other soul in this realm", updatedAt: Date.now() },
+    { id: "cb-6", front: "When you google perfection, a picture of me pops up", back: "Seek perfection in the grand archives, and mine portrait shall appear", updatedAt: Date.now() },
+    { id: "cb-7", front: "You need a page out of my book", back: "Thou wouldst prosper greatly by studying but one page of my wisdom", updatedAt: Date.now() },
   ],
   excuses: [
     { id: "ex-1", front: "My alarm did not go off", back: "Fate conspired against my timely arrival", updatedAt: Date.now() },
     { id: "ex-2", front: "I didn't see it", back: "It escaped mine notice entirely", updatedAt: Date.now() },
     { id: "ex-3", front: "I was sleep", back: "Slumber held me captive beyond my control", updatedAt: Date.now() },
+    { id: "ex-6", front: "I wasn't feeling good", back: "My body was engaged in rebellion against me", updatedAt: Date.now() },
+    { id: "ex-7", front: "My phone died", back: "Mine communication device hath breathed its final breath", updatedAt: Date.now() },
   ],
 };
 
@@ -295,7 +307,7 @@ function renderActiveDeck() {
 
   deckTitle.textContent = activeDeck.name;
   deckDescription.textContent =
-    "Translate today’s slang into language fit for the ages.";
+    "Translate today's slang into language fit for the ages.";
 
   editDeckButton.disabled = false;
   deleteDeckButton.disabled = false;
